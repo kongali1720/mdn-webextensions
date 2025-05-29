@@ -5,6 +5,11 @@
 
 > Kumpulan contoh-contoh Web Extension yang praktis dan mudah dipahami untuk pembelajaran dan referensi pengembangan browser extension.
 
+---
+<p align="center">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHB1bnJ1NHVwaTcxNTY4anV6aW5veWViOW9ydTV4enJ0b3pqOGQxayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/78XCFBGOlS6keY1Bil/giphy.gif" width="400"/>
+</p>
+---
 ## 📋 Daftar Isi
 
 - [Tentang Repository](#tentang-repository)
