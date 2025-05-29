@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .icon-preview { margin: 20px 0; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Extension Icon Generator</h1>
+    <div class="icon-preview">
+        <canvas id="icon16" width="16" height="16"></canvas>
+        <canvas id="icon32" width="32" height="32"></canvas>
+        <canvas id="icon48" width="48" height="48"></canvas>
+        <canvas id="icon128" width="128" height="128"></canvas>
+    </div>
+
+    <script>
+        function drawBellIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            const center = size / 2;
+            const scale = size / 24; // Base size 24px
+
+            // Clear canvas
+            ctx.fillStyle = '#667eea';
+            ctx.fillRect(0, 0, size, size);
+
+            // Draw bell icon
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = Math.max(1, 2 * scale);
+
+            // Bell body
+            ctx.beginPath();
+            ctx.moveTo(center - 6 * scale, center + 3 * scale);
+            ctx.quadraticCurveTo(center - 8 * scale, center - 3 * scale, center - 6 * scale, center - 6 * scale);
+            ctx.lineTo(center - 2 * scale, center - 8 * scale);
+            ctx.quadraticCurveTo(center, center - 9 * scale, center + 2 * scale, center - 8 * scale);
+            ctx.lineTo(center + 6 * scale, center - 6 * scale);
+            ctx.quadraticCurveTo(center + 8 * scale, center - 3 * scale, center + 6 * scale, center + 3 * scale);
+            ctx.closePath();
+            ctx.fill();
+
+            // Bell clapper
+            ctx.beginPath();
+            ctx.arc(center, center + 6 * scale, 1.5 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Notification dot
+            ctx.fillStyle = '#ff4757';
+            ctx.beginPath();
+            ctx.arc(center + 5 * scale, center - 5 * scale, 2 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // Generate all icon sizes
+        ['16', '32', '48', '128'].forEach(size => {
+            const canvas = document.getElementById('icon' + size);
+            drawBellIcon(canvas, parseInt(size));
+
+            // Download link
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = canvas.toDataURL();
+            link.textContent = `Download ${size}x${size}`;
+            link.style.display = 'block';
+            link.style.margin = '5px 0';
+            document.body.appendChild(link);
+        });
+    </script>
+</body>
+</html>
