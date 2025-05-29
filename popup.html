@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="popupTitle">Link Click Notifier</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-icon">
+        <img src="icons/icon-48.png" alt="Extension Icon" width="32" height="32">
+      </div>
+      <h1 class="header-title" data-i18n="popupTitle">Link Click Notifier</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <p class="description" data-i18n="popupDescription">
+        This extension will notify you when you click on links on any webpage.
+      </p>
+
+      <!-- Toggle Section -->
+      <div class="toggle-section">
+        <div class="toggle-container">
+          <label class="toggle-label">
+            <input type="checkbox" id="notificationToggle" class="toggle-input">
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-text" id="toggleText" data-i18n="enableNotifications">
+            Enable Notifications
+          </span>
+        </div>
+
+        <div class="status-message" id="statusMessage">
+          <span data-i18n="notificationsEnabled">Notifications are enabled</span>
+        </div>
+      </div>
+
+      <!-- Statistics Section -->
+      <div class="stats-section">
+        <h3 class="stats-title">Statistics</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">Total Clicks</span>
+            <span class="stat-value" id="clickCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Links on Page</span>
+            <span class="stat-value" id="linkCount">-</span>
+          </div>
+        </div>
+
+        <div class="last-click" id="lastClickInfo">
+          <span class="last-click-label">Last clicked:</span>
+          <span class="last-click-url" id="lastClickUrl">None</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button class="btn btn-secondary" id="resetStatsBtn">
+          Reset Statistics
+        </button>
+        <button class="btn btn-primary" id="testNotificationBtn">
+          Test Notification
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text">
+        Made with ❤️ for learning Web Extensions
+      </p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
